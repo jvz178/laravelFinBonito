@@ -6,8 +6,9 @@ use Illuminate\Http\Request;
 
 class UsuarioController extends Controller
 {
-    public function accederGestion(){
+    public function accesoGestion(){
 
-        return view('acciones.gestion');
+        $datos['users']=User::paginate(5);
+        return view('acciones.gestion', $datos);
     }
 }

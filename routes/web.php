@@ -15,4 +15,4 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/acciones/gestion', 'UsuarioController@accederGestion');
+Route::get('/acciones/gestion', 'UsuarioController@accesoGestion');
