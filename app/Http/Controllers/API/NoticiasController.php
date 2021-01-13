@@ -8,6 +8,7 @@ use App\Noticia;
 use Validator;
 
 
+
 class NoticiasController extends Controller
 {
     
