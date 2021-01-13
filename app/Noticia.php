@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models;
+namespace App;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Noticia extends Model
 {
     // use HasFactory;
-    protected $table = 'noticias';
+    //  protected $table = 'noticias';
 
     protected $fillable = [
          'titulo','imagen','descripcion','ciclo_id',

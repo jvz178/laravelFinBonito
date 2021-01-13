@@ -4,12 +4,13 @@ namespace App\Http\Controllers\API;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Noticias;
+use App\Noticia;
 use Validator;
-
 
 class NoticiasController extends Controller
 {
+    
+    public $successStatus = 200;
     /**
      * Display a listing of the resource.
      *
