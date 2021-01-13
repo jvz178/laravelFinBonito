@@ -11,7 +11,6 @@ $factory->define(App\usuario::class, function (Faker $faker) {
             'nombre' => $faker->name,
             'apellido' => $faker->apellido,
             'email' => $faker->unique()->safeEmail,
-            'email_verified_at' =>$faker->safeEmail,
             'password' => '$2y$10$TKh8H1.PfQx37YgCzwiKb.KjNyWgaHb9cbcoQgdIVFlYg7B77UdFm', // secret
             'tipo' => $faker->name,
             'activado' => $faker->boolean,
