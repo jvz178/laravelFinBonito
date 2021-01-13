@@ -4,25 +4,13 @@ namespace Database\Factories;
 
 use App\Models\Noticia;
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Faker\Generator as Faker;
 
-class NoticiaFactory extends Factory
-{
-    /**
-     * The name of the factory's corresponding model.
-     *
-     * @var string
-     */
-    protected $model = Noticia::class;
-
-    /**
-     * Define the model's default state.
-     *
-     * @return array
-     */
-    public function definition()
-    {
+$factory->define(App\Noticia::class, function(Faker $faker){
         return [
-            //
+            'titulo' =>$faker->name,
+            'imagen' =>$faker->name,
+            'descripcion' =>$faker->paragraph,
+            'ciclo_id' => \app\ciclos::all()->random()->id
         ];
-    }
-}
+    });

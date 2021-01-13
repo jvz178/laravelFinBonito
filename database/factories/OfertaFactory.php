@@ -4,25 +4,14 @@ namespace Database\Factories;
 
 use App\Models\oferta;
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Faker\Generator as Faker;
 
-class OfertaFactory extends Factory
-{
-    /**
-     * The name of the factory's corresponding model.
-     *
-     * @var string
-     */
-    protected $model = oferta::class;
-
-    /**
-     * Define the model's default state.
-     *
-     * @return array
-     */
-    public function definition()
-    {
+$factory->define(App\oferta::class, function (Faker $faker) {
         return [
-            //
+            'titulo' => $faker->name,
+            'descripcion' => $faker->paragraph,
+            'fecha_max' => $faker->date($format = 'dd-mm-YYYY'),
+            'num_candidatos' => $faker->randomDigit,
+            'ciclo_id' => \app\ciclos::all()->random()->id()
         ];
-    }
-}
+    });
