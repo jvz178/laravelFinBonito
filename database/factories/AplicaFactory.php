@@ -4,25 +4,11 @@ namespace Database\Factories;
 
 use App\Models\Aplica;
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Faker\Generator as Faker;
 
-class AplicaFactory extends Factory
-{
-    /**
-     * The name of the factory's corresponding model.
-     *
-     * @var string
-     */
-    protected $model = Aplica::class;
-
-    /**
-     * Define the model's default state.
-     *
-     * @return array
-     */
-    public function definition()
-    {
-        return [
-            //
-        ];
-    }
-}
+$factory->define(App\Aplica::class, function(Faker $faker) {
+    return [
+        'oferta_id' => \app\ofertas::all()->random()->id,
+        'usuario_id' => \app\users::all()->random()->id
+    ];
+});

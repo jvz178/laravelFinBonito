@@ -4,25 +4,11 @@ namespace Database\Factories;
 
 use App\Models\requisito;
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Faker\Generator as Faker;
 
-class RequisitoFactory extends Factory
-{
-    /**
-     * The name of the factory's corresponding model.
-     *
-     * @var string
-     */
-    protected $model = requisito::class;
-
-    /**
-     * Define the model's default state.
-     *
-     * @return array
-     */
-    public function definition()
-    {
+$factory->define(App\requisito::class, function (Faker $faker) {
         return [
-            //
+            'description'=>$faker->paragraph,
+            'oferta_id'=>\app\ofertas::all()->random()->id()
         ];
-    }
-}
+    });
