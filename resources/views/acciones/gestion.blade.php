@@ -1,6 +1,6 @@
-@extends('layouts.app')
-
-@section('content')
-<div class="container">
-
-</div>
+<form action="" method="post" enctype="multipart/form-data">
+<h1>Gestion de usuarios</h1>
+@foreach(users as user)
+<tr></tr>
+<td>{{user->id}}</td>
+</form>
