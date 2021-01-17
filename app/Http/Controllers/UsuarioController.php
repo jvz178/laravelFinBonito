@@ -14,4 +14,18 @@ class UsuarioController extends Controller
 
         return view('acciones.gestion', $datos);
     }
+
+    public function accesoGestionFiltrado(){
+
+        $datos2['users']=User::where('activado',1)->paginate(5);
+        
+        return view('acciones.gestion', $datos2);
+    }
+
+    public function accesoGestionFiltrado2(){
+
+        $datos3['users']=User::where('activado',0)->paginate(5);
+
+        return view('acciones.gestion', $datos3);
+    }
 }

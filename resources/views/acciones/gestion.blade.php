@@ -9,7 +9,7 @@
         </tr>
     </thead>
     <tbody>
-        @foreach($users as $user)
+        @foreach($users as $user) 
             <tr>
                 <td>{{ $user->id }}</td>
                 <td>{{ $user->nombre }}</td>
@@ -19,4 +19,11 @@
         @endforeach
     </tbody>
 </table>
-<button class="btn btn-warning">Boton</button>
+<select name="Filtro" class="form-control">
+<option>--Escoge filtro--</option>
+<option href="{{ url('/filtro') }}">Activado</option>
+<option>Desactivado</option>
+</select>
+<a class="btn btn-warning" href="{{ url('/acciones/gestion/filtro') }}">Activos</a>
+<a class="btn btn-warning" href="{{ url('/acciones/gestion/filtro2') }}">Inactivos</a>
+<a class="btn btn-warning" href="{{ url('/acciones/gestion') }}">Ambos</a>
