@@ -6,6 +6,7 @@
             <th>Nombre</th>
             <th>Apellido</th>
             <th>Email</th>
+            <th>Estado</th>
         </tr>
     </thead>
     <tbody>
@@ -15,13 +16,21 @@
                 <td>{{ $user->nombre }}</td>
                 <td>{{ $user->apellido }}</td>
                 <td>{{ $user->email }}</td>
+                <td>
+                @if ($user->activado==0)
+                <a class="btn btn-warning" href="{{ url('/acciones/gestion/filtro') }}">Activar</a>
+                @endif
+                @if ($user->activado==1)
+                <a class="btn btn-warning" href="{{ url('/acciones/gestion/filtro') }}">Desactivar</a>
+                @endif
+                </td>
             </tr>
         @endforeach
     </tbody>
 </table>
 <select name="Filtro" class="form-control">
 <option>--Escoge filtro--</option>
-<option href="{{ url('/filtro') }}">Activado</option>
+<option href="{{ url('/acciones/gestion/filtro') }}">Activado</option>
 <option>Desactivado</option>
 </select>
 <a class="btn btn-warning" href="{{ url('/acciones/gestion/filtro') }}">Activos</a>
