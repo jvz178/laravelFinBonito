@@ -1,3 +1,7 @@
+<form action="" method="post">
+{{ csrf_field() }}
+{{ method_field('PATH') }}
+
 <h1>Gestión de usuarios</h1>
 <table class="table table-light table-hover">
     <thead class="thead-light">
@@ -18,10 +22,10 @@
                 <td>{{ $user->email }}</td>
                 <td>
                 @if ($user->activado==0)
-                <a class="btn btn-warning" href="{{ url('/acciones/gestion/filtro') }}">Activar</a>
+                <button type="submit" value="cambiar" >Activar</button>
                 @endif
                 @if ($user->activado==1)
-                <a class="btn btn-warning" href="{{ url('/acciones/gestion/filtro') }}">Desactivar</a>
+                <button type="submit" value="Editar">Desactivar</button>
                 @endif
                 </td>
             </tr>
@@ -36,3 +40,4 @@
 <a class="btn btn-warning" href="{{ url('/acciones/gestion/filtro') }}">Activos</a>
 <a class="btn btn-warning" href="{{ url('/acciones/gestion/filtro2') }}">Inactivos</a>
 <a class="btn btn-warning" href="{{ url('/acciones/gestion') }}">Ambos</a>
+</form>

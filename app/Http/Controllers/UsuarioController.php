@@ -28,4 +28,11 @@ class UsuarioController extends Controller
 
         return view('acciones.gestion', $datos3);
     }
+
+    public function cambiar($id, $activado){
+
+        Users::where('id','=',id)->update($activado==0);
+
+        $user= Users::findOrFail($id);
+    }
 }
