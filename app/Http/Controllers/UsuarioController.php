@@ -45,7 +45,7 @@ class UsuarioController extends Controller
             'content' => "Este es un correo de prueba",
         ];
 
-        Mail::send('acciones/email', $data, function ($message) use($data){
+        Mail::send('emailVista', $data, function ($message) use($data){
 
             $message->from('salesin@gmail.com');
             $message->to($data['emailto'])->subject($data['subject']);

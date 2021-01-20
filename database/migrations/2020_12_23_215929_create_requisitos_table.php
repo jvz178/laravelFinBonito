@@ -16,11 +16,10 @@ class CreateRequisitosTable extends Migration
         Schema::create('requisitos', function (Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->increments('id');
-            $table->timestamps();
             $table->text('descripcion');
             $table->unsignedInteger('oferta_id');
             $table->foreign('oferta_id')->references('id')->on('ofertas'); 
-            
+            $table->timestamps();
         });
     }
 

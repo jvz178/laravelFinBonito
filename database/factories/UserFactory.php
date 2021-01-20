@@ -13,15 +13,16 @@ use Faker\Generator as Faker;
 |
 */
 
-$factory->define(App\User::class, function (Faker $faker) {
+$factory->define(\App\User::class, function (Faker $faker) {
     return [
-        'name' => $faker->name,
+        'nombre' => $faker->name,
+        'apellido' => $faker->name,
         'email' => $faker->unique()->safeEmail,
         'password' => '$2y$10$TKh8H1.PfQx37YgCzwiKb.KjNyWgaHb9cbcoQgdIVFlYg7B77UdFm', // secret
         'tipo' => $faker->name,
         'activado' => $faker->boolean,
-        'ciclo_id' => \App\ciclos::all()->random()->id,
-        'num_ofertas_inscrito' => $faker->randomDigit,
+        'ciclo_id' => \App\ciclo::all()->random()->id,
+        'num_oferta_inscrito' => $faker->randomDigit(20),
         'remember_token' => str_random(10),
     ];
 });

@@ -86,7 +86,7 @@
                     <!--<a href="https://laravel.com/docs">Documentation</a>-->
                     <a href="acciones/gestion">Gestion</a>
                     <!--<a href="https://laracasts.com">Laracasts</a>-->
-                    <a href="{{ route('enviarEmail') }}">Email</a>
+                    <a href="emailVista">Email</a>
                     <a href="https://laravel-news.com">News</a>
                     <a href="https://forge.laravel.com">Forge</a>
                     <a href="https://github.com/laravel/laravel">GitHub</a>
