@@ -16,3 +16,7 @@ Route::get('/', function () {
 });
 
 Route::get('/acciones/gestion', 'UsuarioController@accesoGestion');
+Route::get('/acciones/gestion/filtro', 'UsuarioController@accesoGestionFiltrado');
+Route::get('/acciones/gestion/filtro2', 'UsuarioController@accesoGestionFiltrado2');
+Route::patch('/acciones/gestion','UsuarioController@cambiar');
+Route::post('enviarEmail', 'UsuarioController@enviarEmail')->name('enviarEmail');
