@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Http\Request;
 use App\user;
 
@@ -34,5 +35,22 @@ class UsuarioController extends Controller
         Users::where('id','=',id)->update($activado==0);
 
         $user= Users::findOrFail($id);
+    }
+
+    public function enviarEmail(){
+
+        $data=[
+            'emailto'=>"juanvizarzuela@gmail.com",
+            'subject' => "Mensaje importante",
+            'content' => "Este es un correo de prueba",
+        ];
+
+        Mail::send('email', $data, function ($message) use($data){
+
+            $message->from('salesin@gmail.com');
+            $message->to($data['emailto'])->subject($data['subject']);
+        });
+
+        return back();
     }
 }

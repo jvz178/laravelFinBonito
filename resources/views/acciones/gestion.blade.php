@@ -1,6 +1,6 @@
-<form action="" method="post">
+<form action="users" method="Patch">
 {{ csrf_field() }}
-{{ method_field('PATH') }}
+{{ method_field('PATCH') }}
 
 <h1>Gestión de usuarios</h1>
 <table class="table table-light table-hover">
@@ -22,10 +22,10 @@
                 <td>{{ $user->email }}</td>
                 <td>
                 @if ($user->activado==0)
-                <button type="submit" value="cambiar" >Activar</button>
+                <input type="submit" value="Activar">
                 @endif
                 @if ($user->activado==1)
-                <button type="submit" value="Editar">Desactivar</button>
+                <input type="submit" value="Desactivar">
                 @endif
                 </td>
             </tr>
