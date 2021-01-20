@@ -6,9 +6,9 @@ use App\Requisito;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Faker\Generator as Faker;
 
-$factory->define(App\requisito::class, function (Faker $faker) {
+$factory->define(\App\Requisito::class, function (Faker $faker) {
         return [
-            'description'=>$faker->paragraph,
-            'oferta_id'=>\app\ofertas::all()->random()->id()
+            'descripcion'=>$faker->paragraph,
+            'oferta_id'=>\app\oferta::all()->random()->id
         ];
     });

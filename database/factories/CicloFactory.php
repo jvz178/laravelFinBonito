@@ -6,9 +6,9 @@ use App\Ciclo;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Faker\Generator as Faker;
 
-$factory->define(App\ciclo::class, function(Faker $faker){
+$factory->define(\App\Ciclo::class, function(Faker $faker){
     return [
         'name' =>$faker->name,
-        'img' =>$faker->name
+        'img' =>$faker->name,
     ];
 });

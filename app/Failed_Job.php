@@ -5,12 +5,11 @@ namespace App;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Requisito extends Model
+class Failed_Job extends Model
 {
-    // use HasFactory;
-    protected $table = 'requisitos';
+    protected $table = 'failed_jobs';
 
     protected $fillable = [
-        'descripcion','oferta_id',
+        'uuid','connection','queue','payload','exception'
     ];
 }

@@ -6,11 +6,11 @@ use App\Noticia;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Faker\Generator as Faker;
 
-$factory->define(App\Noticia::class, function(Faker $faker){
+$factory->define(\App\Noticia::class, function(Faker $faker){
         return [
             'titulo' =>$faker->name,
             'imagen' =>$faker->name,
             'descripcion' =>$faker->paragraph,
-            'ciclo_id' => \app\ciclos::all()->random()->id
+            'ciclo_id' => \app\ciclo::all()->random()->id
         ];
     });
