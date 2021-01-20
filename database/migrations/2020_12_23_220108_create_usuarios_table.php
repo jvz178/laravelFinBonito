@@ -25,6 +25,7 @@ class CreateUsuariosTable extends Migration
             $table->unsignedInteger('ciclo_id');
             $table->foreign('ciclo_id')->references('id')->on('ciclos'); 
             $table->integer('num_oferta_inscrito');
+            $table->boolean('is_logged')->default(false);
             $table->rememberToken();
             $table->timestamps();
             

@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Noticia;
 use Validator;
 
+
 class NoticiasController extends Controller
 {
     
@@ -60,9 +61,9 @@ class NoticiasController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($ciclo_id)
     {
-        $noticia = Noticia::find($id);
+        $noticia = Noticia::find($ciclo_id);
         if (is_null($noticia)) {
         return response()->json(['error' => $validator->errors()], 401);
         }
