@@ -21,7 +21,8 @@ $factory->define(App\User::class, function (Faker $faker) {
         'tipo' => $faker->name,
         'activado' => $faker->boolean,
         'ciclo_id' => \App\ciclos::all()->random()->id,
-        'num_ofertas_inscrito' => $faker->randomDigit,
+        'num_ofertas_inscrito' => 0,
         'remember_token' => str_random(10),
+        // 'is_logged' =>  $faker->boolean,
     ];
 });

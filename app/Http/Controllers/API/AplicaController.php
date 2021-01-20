@@ -4,15 +4,13 @@ namespace App\Http\Controllers\API;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Oferta;
+use App\Aplica;
 use Validator;
 
-
-
-class OfertasController extends Controller
+class AplicaController extends Controller
 {
-
     public $successStatus = 200;
+
     /**
      * Display a listing of the resource.
      *
@@ -20,8 +18,7 @@ class OfertasController extends Controller
      */
     public function index()
     {
-        $ofertas = Oferta::all();
-        return response()->json(['Ofertas' => $ofertas->toArray()], $this->successStatus);
+        //
     }
 
     /**
@@ -31,7 +28,7 @@ class OfertasController extends Controller
      */
     public function create()
     {
-        //
+        
     }
 
     /**
@@ -42,7 +39,16 @@ class OfertasController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $input = $request->all();
+        $validator = Validator::make($input, [
+        'oferta_id' => 'required',
+        'usuario_id' => 'required'
+        ]);
+        if($validator->fails()){
+        return response()->json(['error' => $validator->errors()], 401); 
+        }
+        $aplica = Aplica::create($input);
+        return response()->json(['Aplica' => $aplica->toArray()], $this->successStatus);
     }
 
     /**
@@ -51,22 +57,11 @@ class OfertasController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($ciclo_id)
+    public function show($id)
     {
-        $oferta = Oferta::where('ciclo_id', $ciclo_id)->get();
-
-        return response()->json(['Oferta' => $oferta->toArray()], $this->successStatus);
+        //
     }
 
-     //     // $validator = Validator::make($input, [
-    //     //         'ciclo_id' => 'required'
-    //     //     ]);
-    //     $oferta = Oferta::where('cicle_id', $ciclo_id)->get();
-    //     if (is_null($oferta)) {
-    //     return response()->json(['error' => $validator->errors()], 401);
-    //     }
-    //     return response()->json(['Oferta' => $oferta->toArray()], $this->successStatus);
-    // }
     /**
      * Show the form for editing the specified resource.
      *
@@ -96,8 +91,10 @@ class OfertasController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Aplica $aplica)
     {
-        //
+        $aplica->delete();
+        return response()->json(['Aplica' => $aplica->toArray()], $this->successStatus);
+
     }
 }

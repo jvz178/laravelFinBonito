@@ -19,11 +19,12 @@ class CreateUsersTable extends Migration
             $table->string('apellido');
             $table->string('email')->unique();
             $table->string('password');
-            $table->string('tipo');
+            $table->string('tipo')->default('client');
             $table->boolean('activado')->default(0);
+            // $table->boolean('is_logged')->default(0);
             $table->unsignedInteger('ciclo_id');
             $table->foreign('ciclo_id')->references('id')->on('ciclos'); 
-            $table->integer('num_oferta_inscrito');
+            $table->integer('num_oferta_inscrito')->default(0);
             $table->rememberToken();
             $table->timestamps();
         });

@@ -2,7 +2,7 @@
 
 namespace Database\Factories;
 
-use App\Models\ciclo;
+use App\Ciclo;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Faker\Generator as Faker;
 

@@ -2,7 +2,7 @@
 
 namespace Database\Factories;
 
-use App\Models\oferta;
+use App\Oferta;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Faker\Generator as Faker;
 

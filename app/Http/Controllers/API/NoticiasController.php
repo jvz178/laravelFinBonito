@@ -41,18 +41,7 @@ class NoticiasController extends Controller
      */
     public function store(Request $request)
     {
-        $input = $request->all();
-         $validator = Validator::make($input, [
-            'titulo' => 'required',
-            'imagen' => 'required',
-            'descripcion' => 'required',
-            'ciclo_id' => 'required'
-        ]);
-        if($validator->fails()){
-            return response()->json(['error' => $validator->errors()], 401);
-        }
-        $noticia = Noticia::create($input);
-        return response()->json(['Noticia' => $noticia->toArray()], $this->successStatus);
+        
     }
 
     /**
@@ -63,13 +52,11 @@ class NoticiasController extends Controller
      */
     public function show($ciclo_id)
     {
-        $noticia = Noticia::find($ciclo_id);
-        if (is_null($noticia)) {
-        return response()->json(['error' => $validator->errors()], 401);
-        }
+        $noticia = Noticia::where('ciclo_id', $ciclo_id)->get();
+        
         return response()->json(['Noticia' => $noticia->toArray()], $this->successStatus);
     }
-
+  
     /**
      * Show the form for editing the specified resource.
      *
@@ -90,22 +77,7 @@ class NoticiasController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $input = $request->all();
-        $validator = Validator::make($input, [
-            'titulo' => 'required',
-            'imagen' => 'required',
-            'descripcion' => 'required',
-            'ciclo_id' => 'required'
-        ]);
-        if($validator->fails()){
-        return response()->json(['error' => $validator->errors()], 401);
-        }
-        $noticia->titulo = $input['titulo'];
-        $noticia->imagen = $input['imagen'];
-        $noticia->descripcion = $input['descripcion'];
-        $noticia->ciclo_id = $input['ciclo_id'];
-        $noticia->save();
-        return response()->json(['Noticia' => $noticia->toArray()], $this->successStatus);
+    
     }
 
     /**

@@ -15,11 +15,12 @@ class RegisterController extends Controller
          'nombre' => 'required',
          'apellido' => 'required',
          'ciclo_id' => 'required',
-         'tipo' => 'required',
-         'activado' => 'required',
-         'num_oferta_inscrito',
+        //  'tipo' => 'required',
+        //  'activado' => 'required',
+        //  'num_oferta_inscrito',
          'email' => 'required|email',
-         'password' => 'required'
+         'password' => 'required',
+        //  'is_logged' => 'required',
  ]);
  if($validator->fails()) {
  return response()->json(['error' => $validator->errors()], 401);
@@ -28,7 +29,7 @@ class RegisterController extends Controller
  $input['password'] = bcrypt($input['password']);
  $user = User::create($input);
  $success['token'] = $user->createToken('MyApp')->accessToken;
- $success['name'] = $user->name;
+ $success['nombre'] = $user->nombre;
  return response()->json(['success' => $success], $this->successStatus);
  }
  
@@ -47,18 +48,13 @@ class RegisterController extends Controller
    public function logout(){
 
     $user = User::find(auth()->id());
-    $user->is_logged = false;
+    // $user->is_logged = false;
     $user->save();
     $this->guard()->logout();
     $request->session()->invalidate();
     return $this->loggedOut($request) ?: redirect('/login');
    }
 
-   public function index()
-    {
-        $user = User::all();
-        return response()->json(['Users' => $user->toArray()], $this->successStatus);
-    }
- 
+
 }
 

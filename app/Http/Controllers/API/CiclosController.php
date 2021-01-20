@@ -4,9 +4,13 @@ namespace App\Http\Controllers\API;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Ciclo;
+use Validator;
+
 
 class CiclosController extends Controller
 {
+    public $successStatus = 200;
     /**
      * Display a listing of the resource.
      *

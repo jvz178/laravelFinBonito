@@ -2,7 +2,7 @@
 
 namespace Database\Factories;
 
-use App\Models\Noticia;
+use App\Noticia;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Faker\Generator as Faker;
 
