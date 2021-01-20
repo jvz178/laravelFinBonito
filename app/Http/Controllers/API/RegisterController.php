@@ -9,7 +9,6 @@ use Validator;
 class RegisterController extends Controller
  {
  public $successStatus = 200;
- 
 
  public function register(Request $request) {
      $validator = Validator::make($request->all(), [
@@ -34,17 +33,32 @@ class RegisterController extends Controller
  }
  
  public function login() {
-    // Si las credenciales son correctas
+    
     if(Auth::attempt(['email' => request('email'), 'password' => request('password')])) {
     $user = Auth::user();
-    // Creamos un token de acceso para ese usuario
     $success['token'] = $user->createToken('MyApp')->accessToken;
-    // Y lo devolvemos en el objeto 'json'
     return response()->json(['success' => $success], $this->successStatus);
     }
     else {
     return response()->json(['error' => 'No estás autorizado'], 401);
     }
    }
+
+   public function logout(){
+
+    $user = User::find(auth()->id());
+    $user->is_logged = false;
+    $user->save();
+    $this->guard()->logout();
+    $request->session()->invalidate();
+    return $this->loggedOut($request) ?: redirect('/login');
+   }
+
+   public function index()
+    {
+        $user = User::all();
+        return response()->json(['Users' => $user->toArray()], $this->successStatus);
+    }
+ 
 }
 
