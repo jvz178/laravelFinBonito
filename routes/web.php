@@ -20,3 +20,4 @@ Route::get('/acciones/gestion/filtro', 'UsuarioController@accesoGestionFiltrado'
 Route::get('/acciones/gestion/filtro2', 'UsuarioController@accesoGestionFiltrado2');
 Route::patch('/acciones/gestion','UsuarioController@cambiar');
 Route::post('/enviarEmail', 'UsuarioController@enviarEmail')->name('enviarEmail');
+Route::get('pdf', 'InformesController@general')->name('pdf');

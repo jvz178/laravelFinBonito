@@ -15,9 +15,9 @@ class RegisterController extends Controller
          'nombre' => 'required',
          'apellido' => 'required',
          'ciclo_id' => 'required',
-        //  'tipo' => 'required',
-        //  'activado' => 'required',
-        //  'num_oferta_inscrito',
+         'tipo' => 'required',
+         'activado' => 'required',
+         'num_oferta_inscrito' => 'required',
          'email' => 'required|email',
          'password' => 'required',
         //  'is_logged' => 'required',
@@ -29,7 +29,7 @@ class RegisterController extends Controller
  $input['password'] = bcrypt($input['password']);
  $user = User::create($input);
  $success['token'] = $user->createToken('MyApp')->accessToken;
- $success['nombre'] = $user->nombre;
+ $success['name'] = $user->name;
  return response()->json(['success' => $success], $this->successStatus);
  }
  
@@ -45,15 +45,15 @@ class RegisterController extends Controller
     }
    }
 
-   public function logout(){
+//    public function logout(){
 
-    $user = User::find(auth()->id());
-    // $user->is_logged = false;
-    $user->save();
-    $this->guard()->logout();
-    $request->session()->invalidate();
-    return $this->loggedOut($request) ?: redirect('/login');
-   }
+//     $user = User::find(auth()->id());
+//     // $user->is_logged = false;
+//     $user->save();
+//     $this->guard()->logout();
+//     $request->session()->invalidate();
+//     return $this->loggedOut($request) ?: redirect('/login');
+//    }
 
 
 }
