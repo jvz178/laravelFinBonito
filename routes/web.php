@@ -21,3 +21,6 @@ Route::get('/acciones/gestion/filtro2', 'UsuarioController@accesoGestionFiltrado
 Route::patch('/acciones/gestion','UsuarioController@cambiar');
 Route::post('/enviarEmail', 'UsuarioController@enviarEmail')->name('enviarEmail');
 Route::get('pdf', 'InformesController@general')->name('pdf');
+Route::resource('/noticias', 'NoticiaController');
+
+Auth::routes();

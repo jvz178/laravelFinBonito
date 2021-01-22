@@ -8,7 +8,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>Gestión FP Dual</title> <!--{{ config('app.name', 'Laravel') }}-->
+    <title>Ofertas</title> <!--{{ config('app.name', 'Laravel') }}-->
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -30,7 +30,7 @@
 
                     <!-- Branding Image -->
                     <a class="navbar-brand" href="{{ url('/') }}">
-                        Gestión FP Dual
+                        Gestión de Ofertas de Empleo
                     </a>
                     <!--{{ config('app.name', 'Laravel') }}-->
                 </div>
