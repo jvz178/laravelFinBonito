@@ -20,3 +20,7 @@ Route::get('/acciones/gestion/filtro', 'UsuarioController@accesoGestionFiltrado'
 Route::get('/acciones/gestion/filtro2', 'UsuarioController@accesoGestionFiltrado2');
 Route::get('/acciones/vistaEmail', 'EmailController@accederEmail');
 Route::resource('usuario', 'UsuarioController@cambiar');
+Route::get('pdf', 'InformesController@general')->name('pdf');
+Route::resource('/noticias', 'NoticiaController');
+
+Auth::routes();
