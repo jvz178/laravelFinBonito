@@ -1,6 +1,6 @@
-<form action="users" method="Patch">
+<form action="{{ url('/usuario') }}" method="Patch">
 {{ csrf_field() }}
-{{ method_field('PATCH') }}
+<!--{{ method_field('PATCH') }}-->
 
 <h1>Gestión de usuarios</h1>
 <table class="table table-light table-hover">
