@@ -23,7 +23,7 @@ class InformesController extends Controller
         // ->whereYear('fecha_max', $año)->get()
         // ->select ('oferta')
         // ->whereBetween ('fecha_max',['01-09-2011','31-08-2012']);
-        return response()->json($ofertas); 
+        return response()->json($listaOfertas); 
     }
 
     // public function general() {
