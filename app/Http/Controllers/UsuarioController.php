@@ -32,10 +32,14 @@ class UsuarioController extends Controller
     public function cambiar($id){
 
         $usuarioDatos = User::findOrFail($id);
-        $usuarioDatos->activado=1;
-        $usuarioDatos->save();
-        //User::where('id','=',$id)->update($usuarioDatos);
-
-        return response()->json($id);
+        $activado = $usuarioDatos->activado;
+        if ($activado==0){
+            $usuarioDatos->activado=1;
+            $usuarioDatos->save();
+        }else{
+            $usuarioDatos->activado=0;
+            $usuarioDatos->save();
+        }
+        return back();
     }
 }

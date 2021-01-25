@@ -25,7 +25,7 @@
                 <a href="{{ url('usuario',$user->id) }}">Activar</a>
                 @endif
                 @if ($user->activado==1)
-                <input type="submit" value="Desactivar">
+                <a href="{{ url('usuario',$user->id) }}">Desactivar</a>
                 @endif
                 </td>
             </tr>
@@ -34,11 +34,12 @@
 </table>
 <br/>
 <a class="btn btn-warning" href="{{ url('/') }}">Atrás</a>
-<select name="Filtro" class="form-control">
+<!--<select name="Filtro" class="form-control">
 <option>--Escoge filtro--</option>
 <option href="{{ url('/acciones/gestion/filtro') }}">Activado</option>
 <option>Desactivado</option>
-</select>
+</select>-->
+<h4>Filtros: </h4>
 <a class="btn btn-warning" href="{{ url('/acciones/gestion/filtro') }}">Activos</a>
 <a class="btn btn-warning" href="{{ url('/acciones/gestion/filtro2') }}">Inactivos</a>
 <a class="btn btn-warning" href="{{ url('/acciones/gestion') }}">Ambos</a>
