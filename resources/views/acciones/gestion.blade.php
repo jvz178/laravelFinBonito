@@ -1,4 +1,4 @@
-<form action="users" method="Patch">
+<!--action="{{ url('/usuario') }}"-->
 {{ csrf_field() }}
 {{ method_field('PATCH') }}
 
@@ -22,7 +22,7 @@
                 <td>{{ $user->email }}</td>
                 <td>
                 @if ($user->activado==0)
-                <input type="submit" value="Activar">
+                <a href="{{ url('usuario',$user->id) }}">Activar</a>
                 @endif
                 @if ($user->activado==1)
                 <input type="submit" value="Desactivar">
@@ -32,6 +32,8 @@
         @endforeach
     </tbody>
 </table>
+<br/>
+<a class="btn btn-warning" href="{{ url('/') }}">Atrás</a>
 <select name="Filtro" class="form-control">
 <option>--Escoge filtro--</option>
 <option href="{{ url('/acciones/gestion/filtro') }}">Activado</option>
@@ -40,4 +42,3 @@
 <a class="btn btn-warning" href="{{ url('/acciones/gestion/filtro') }}">Activos</a>
 <a class="btn btn-warning" href="{{ url('/acciones/gestion/filtro2') }}">Inactivos</a>
 <a class="btn btn-warning" href="{{ url('/acciones/gestion') }}">Ambos</a>
-</form>
