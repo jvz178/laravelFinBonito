@@ -89,7 +89,7 @@
                     <a href="emailVista">Email</a>
                     <a href="noticias">Noticias</a>
                     <a href="informes">Generar informes</a>
-                    {{-- <a href="{{ route('pdf') }}">PDF</a> --}}
+                    <a href="{{ route('pdf') }}">PDF</a>
 
                 </div>
             </div>

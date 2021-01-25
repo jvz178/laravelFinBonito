@@ -29,12 +29,13 @@ class UsuarioController extends Controller
         return view('acciones.gestion', $datos3);
     }
 
-    public function cambiar(Request $request, int $id){
+    public function cambiar($id){
 
         $usuarioDatos = User::findOrFail($id);
-        $usuarioDatos->$activado==1;
-        User::where('id','=',$id)->update($usuarioDatos);
+        $usuarioDatos->activado=1;
+        $usuarioDatos->save();
+        //User::where('id','=',$id)->update($usuarioDatos);
 
-        return back();
+        return response()->json($id);
     }
 }

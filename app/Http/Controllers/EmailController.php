@@ -9,7 +9,7 @@ class EmailController extends Controller
 {
     public function accederEmail(){
 
-        return view('acciones.vistaEmail');
+        return view('/acciones/vistaEmail');
     }
 
     public function enviarEmail(){
