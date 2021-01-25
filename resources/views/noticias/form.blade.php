@@ -25,4 +25,6 @@
 <input type="submit" value="{{$Type=='create' ? 'Añadir noticia':'Modificar noticia'}}" class="btn btn-success"></input>
 <a class="btn btn-primary" href="{{ url('/noticias')}}">Volver</a>
 
+
+
 </div>

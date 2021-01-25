@@ -88,7 +88,7 @@
                     <!--<a href="https://laracasts.com">Laracasts</a>-->
                     <a href="emailVista">Email</a>
                     <a href="noticias">Noticias</a>
-                    <a href="informes">Generar informes</a>
+                    <a href="informes/informeOferta">Generar informes</a>
                     {{-- <a href="{{ route('pdf') }}">PDF</a> --}}
 
                 </div>
