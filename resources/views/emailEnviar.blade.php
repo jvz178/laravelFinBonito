@@ -5,9 +5,5 @@
 </head>
 <body>
  {{ $content }}
- <br><br><br>
- <div>
- Correo importante!!!!!
- </div>
 </body>
 </html>

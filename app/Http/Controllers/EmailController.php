@@ -12,12 +12,12 @@ class EmailController extends Controller
         return view('acciones.vistaEmail');
     }
 
-    public function enviarEmail(){
+    public function enviarEmail(Request $request){
 
         $data=[
-        'emailto'=>"salesin300@gmail.com",
-        'subject' => "Mensaje importante",
-        'content' => "Este es un correo de prueba",
+        'emailto'=>$request['Destinatario'],
+        'subject' => $request['Asunto'],
+        'content' => $request['Contenido'],
         ];
 
         Mail::send('emailEnviar',$data, function ($message) use($data){
