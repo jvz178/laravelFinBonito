@@ -1,11 +1,10 @@
-<form action="{{EmailController@enviarEmail}}" method="post">
 {{ csrf_field() }}
 <h1>Email</h1>
-<label for="Asunto">Asunto:</label>
+<h4>Asunto:</h4>
 <input type="text" name="Asunto">
 </br></br>
-<label for="Contenido">Contenido:</label>
+<h4>Contenido:</h4>
 <input type="text" name="Contenido">
 </br></br>
-<input type="submit" value="Enviar">
-</form>
+<a href="{{ route('enviar') }}">Enviar</a>
+<!--href="{{ url('acciones/vistaEmail/enviarEmail') }}"-->
