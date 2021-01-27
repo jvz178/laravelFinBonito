@@ -14,10 +14,16 @@ class EmailController extends Controller
 
     public function enviarEmail(Request $request){
 
+        if($request->hasFile('Archivo')){
+
+            $request['Archivo']=$request->file('Asunto')->store('public');
+        }
+        
         $data=[
         'emailto'=>$request['Destinatario'],
         'subject' => $request['Asunto'],
-        'content' => $request['Contenido'],
+        'content' => $request['Archivo'],
+        'file' => $request['Archivo'],
         ];
 
         Mail::send('emailEnviar',$data, function ($message) use($data){
@@ -25,6 +31,6 @@ class EmailController extends Controller
             $message->to($data['emailto'])->subject($data['subject']);
         });
 
-        return back();
+        return response()->json($request);
     }
 }
