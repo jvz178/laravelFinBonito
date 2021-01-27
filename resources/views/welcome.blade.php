@@ -86,7 +86,7 @@
                     <!--<a href="https://laravel.com/docs">Documentation</a>-->
                     <a href="acciones/gestion">Gestion</a>
                     <!--<a href="https://laracasts.com">Laracasts</a>-->
-                    <a href="emailVista">Email</a>
+                    <a href="acciones/vistaEmail">Email</a>
                     <a href="noticias">Noticias</a>
                     <a href="informes">Generar informes</a>
                     {{-- <a href="{{ route('pdf') }}">PDF</a> --}}
