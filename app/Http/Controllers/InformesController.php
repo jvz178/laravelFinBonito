@@ -9,28 +9,33 @@ use DB;
 
 class InformesController extends Controller
 {
-    
-    public function año(Request $request){
-      $año=$request->año;
-    }
 
-
-    public function informeOferta(){
-
-      $listaOfertas = Oferta::findOrFail($fecha_max);
-      // $conjuntoOfertas= DB::table('ofertas');
+    public function informeOferta(Request $request){
+      
+      $f_inicio=$request->get('anno'.(9-01));
+      $f_fin=$request->get('anno+1'.(8-31));
+      // $listaOfertas = Oferta::findOrFail($año)
+       $listaOfertas= DB::table('ofertas')
       // $ofertas= DB::table('ofertas');
         // ->whereYear('fecha_max', $año)->get()
         // ->select ('oferta')
-        // ->whereBetween ('fecha_max',['01-09-2011','31-08-2012']);
-        return response()->json($listaOfertas); 
+        // ->whereYear('fecha_max', $request->año)
+        ->whereBetween ('fecha_max',[$f_fin,$f_fin])->get();
+        // return View('informes.informeOferta');
+         return response()->json($listaOfertas); 
+        // $pdf = \PDF::loadView('informes.informeOferta', compact());
+        // return $pdf->stream();
     }
 
-    // public function general() {
-    //     $pdf = \PDF::loadView('informes.general');
+    public function general() {
+    
+    return View('informes.general');
+       }
+}
+
+
+//     $pdf = \PDF::loadView('informes.general');
     //     // Para crear un pdf en el navegador usaremos la siguiente línea
     //     // return $pdf->stream();
     //     // Para descargar un pdf en un archivo usaremos la siguiente línea
     //      return $pdf->download('prueba.pdf');
-    //    }
-}
