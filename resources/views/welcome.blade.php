@@ -72,7 +72,7 @@
                         <a href="{{ url('/home') }}">Home</a>
                     @else
                         <a href="{{ route('login') }}">Login</a>
-                        <a href="{{ route('register') }}">Register</a>
+                        {{-- <a href="{{ route('register') }}">Register</a> --}}
                     @endauth
                 </div>
             @endif
@@ -88,10 +88,11 @@
                     <!--<a href="https://laracasts.com">Laracasts</a>-->
                     <a href="acciones/vistaEmail">Email</a>
                     <a href="noticias">Noticias</a>
-                    <a href="informes/informeOferta">Generar informes</a>
+                    <a href="informes">Generar informes</a>
                     {{-- <a href="{{ route('pdf') }}">PDF</a> --}}
 
                 </div>
+            
             </div>
         </div>
     </body>
