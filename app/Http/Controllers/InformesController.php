@@ -18,8 +18,6 @@ class InformesController extends Controller
       $listaOfertas= DB::table('ofertas')
         ->whereBetween ('fecha_max',[$f_inicio,$f_fin])->get();
         // dd($listaOfertas);
-        //  return View('informes.informeOferta',compact('listaOfertas'));
-          // return response()->json($listaOfertas); 
       $pdf = PDF::loadView('informes.informeOferta', compact('listaOfertas'));
       return $pdf->stream();
     }
