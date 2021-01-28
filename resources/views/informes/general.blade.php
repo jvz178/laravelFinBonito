@@ -1,14 +1,14 @@
  
- <h1 style="background-color:DodgerBlue;text-align:center;">Informes de ofertas por curso</h1>
+ <h1 style="background-color:DodgerBlue;text-align:center;font-size:500%;">Informes de ofertas por curso</h1>
  <fieldset>
-    <legend>Seleccione el curso deseado</legend>
- <form method="POST" action="">
+    <legend style="font-size:300%;">Seleccione el curso deseado</legend>
+ <form method="GET" action="informes/ofertas">
      {{csrf_field()}}
      <div class="form-group">
          <label for="anno" class="col-md-12 control-label">
              {{__("Año")}}
          </label>
-         <select id="año" class="form-control" name="año">
+         <select id="año" class="form-control" name="anyo">
             <option value="2011">2011</option>
             <option value="2012">2012</option>
             <option value="2013">2013</option>
@@ -25,7 +25,11 @@
          
          {{__("Seleccionar")}}
      </button>
+     <a class="btn btn-warning" href="{{ url('/home/') }}">
+        Volver
+    </a>
     </fieldset>
+    
  </form>
  
 

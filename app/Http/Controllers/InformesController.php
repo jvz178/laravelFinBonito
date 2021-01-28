@@ -10,27 +10,29 @@ use DB;
 class InformesController extends Controller
 {
 
+ 
     public function informeOferta(Request $request){
-      
-      $f_inicio=$request->get('anno'.(9-01));
-      $f_fin=$request->get('anno+1'.(8-31));
-      // $listaOfertas = Oferta::findOrFail($año)
-       $listaOfertas= DB::table('ofertas')
-      // $ofertas= DB::table('ofertas');
-        // ->whereYear('fecha_max', $año)->get()
-        // ->select ('oferta')
-        // ->whereYear('fecha_max', $request->año)
-        ->whereBetween ('fecha_max',[$f_fin,$f_fin])->get();
-        // return View('informes.informeOferta');
-         return response()->json($listaOfertas); 
-        // $pdf = \PDF::loadView('informes.informeOferta', compact());
-        // return $pdf->stream();
+      $anno=$request->anyo;
+      $f_inicio=$anno.'-09-01';
+      $f_fin=($anno+1).'-08-31';
+      $listaOfertas= DB::table('ofertas')
+        ->whereBetween ('fecha_max',[$f_inicio,$f_fin])->get();
+        // dd($listaOfertas);
+        //  return View('informes.informeOferta',compact('listaOfertas'));
+          // return response()->json($listaOfertas); 
+      $pdf = PDF::loadView('informes.informeOferta', compact('listaOfertas'));
+      return $pdf->stream();
     }
 
     public function general() {
     
     return View('informes.general');
        }
+
+      // public function pdf(){
+      //   $pdf = \PDF::loadView('informes.informeOferta');
+      //   return $pdf->stream();
+      // }
 }
 
 

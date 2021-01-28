@@ -32,7 +32,7 @@
     </tbody>
 </table>
 <br/>
-<a class="btn btn-warning" href="{{ url('/') }}">Atrás</a>
+<a class="btn btn-warning" href="{{ url('/home') }}">Atrás</a>
 <!--<select name="Filtro" class="form-control">
 <option>--Escoge filtro--</option>
 <option href="{{ url('/acciones/gestion/filtro') }}">Activado</option>
