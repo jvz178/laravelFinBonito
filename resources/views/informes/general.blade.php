@@ -1,5 +1,5 @@
  
- <h1 style="background-color:DodgerBlue;text-align:center;font-size:500%;">Informes de ofertas por curso</h1>
+ <h1 style="background-color:DodgerBlue;text-align:center;font-size:500%;">Informes </h1>
  <fieldset>
     <legend style="font-size:300%;">Seleccione el curso deseado</legend>
  <form method="GET" action="informes/ofertas">
@@ -22,6 +22,32 @@
         </select>
      </div>
      <button type="submit" name="anno" class="btn btn-default">
+         
+         {{__("Seleccionar")}}
+     </button>
+     <a class="btn btn-warning" href="{{ url('/home/') }}">
+        Volver
+    </a>
+    </fieldset>
+ </form>
+
+ <fieldset>
+    <legend style="font-size:300%;">Seleccione el ciclo deseado</legend>
+ <form method="GET" action="/informes/oferta3">
+     {{csrf_field()}}
+     <div class="form-group">
+         <label for="ciclo" class="col-md-12 control-label">
+             {{__("Ciclo")}}
+         </label>
+         <select id="ciclo" class="form-control" name="cicle">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+        </select> 
+     </div>
+     <button type="submit" name="ciclo" class="btn btn-default">
          
          {{__("Seleccionar")}}
      </button>
