@@ -1,4 +1,4 @@
-<form action="{{ route('enviar') }}" enctype="multipart/form-data">
+<form action="{{ route('enviar') }}" enctype="multipart/form-data" method="post">
 {{ csrf_field() }}
 <h1>Email</h1>
 <h4>Destinatario:</h4>
@@ -10,8 +10,8 @@
 <h4>Contenido:</h4>
 <input type="text" name="Contenido" id="contenido">
 </br></br>
-<label class="btn btn-warning" for="Archivo">{{ 'Archivo' }}</label>
-<input id="Archivo" name="Archivo" type="file" value="">
+<!--<label for="Archivo">{{ 'Archivo' }}</label>-->
+<input type="file" name="Archivo">
 </br></br>
 <a href="{{ url('/') }}">Atras</a>
 <input type="submit" value="Enviar">
