@@ -1,4 +1,4 @@
-<form action="{{ route('enviar') }}" enctype="multipart/form-data">
+<form action="{{ route('enviar') }}" enctype="multipart/form-data" method="post">
 {{ csrf_field() }}
 <h1>Email</h1>
 <h4>Destinatario:</h4>
