@@ -32,6 +32,6 @@ class EmailController extends Controller
                 'mime'=>request()->file('Archivo')->getMimeType()]);
         });
     }
-        return response()->json($dataCorreos);
+        return back();
     }
 }
