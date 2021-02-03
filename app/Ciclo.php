@@ -11,6 +11,6 @@ class Ciclo extends Model
     // protected $table = 'ciclos';
 
     protected $fillable = [
-         'nombre','img',
+         'name','img',
     ];
 }

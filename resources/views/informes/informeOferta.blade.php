@@ -9,7 +9,9 @@
 
 <body>
     <h1>SalesIn</h1>
+    <img src="images/Logo.jpg" style="float:right;width:62px;height:62px;"> 
     <h2>Ofertas por curso</h2>
+    <br/>
     <table border="1" class="table table-light table-hover default">
         <thead class="thead-light">
             <tr>
@@ -39,15 +41,6 @@
 
 </html> 
 
-{{-- 
-@foreach ($listaOfertas as $oferta)
-{{$oferta->id}}<br/>
-{{$oferta->titulo}}<br/>
-{{$oferta->descripcion}}<br/>
-{{$oferta->fecha_max}}<br/>
-{{$oferta->num_candidatos}}<br/>
-{{$oferta->ciclo_id}}   <br/> 
-@endforeach --}}
 
 
 

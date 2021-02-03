@@ -8,9 +8,17 @@ use Illuminate\Database\Eloquent\Model;
 class Aplica extends Model
 {
     // use HasFactory;
-    // protected $table = 'aplicas';
+    protected $table = 'aplicas';
 
     protected $fillable = [
-         'oferta_id','usuario_id',
+         'id', 'oferta_id','usuario_id',
     ];
+
+    public function usuario(){
+        return $this->belongsTo(User::class, 'usuario_id');
+    }
+
+    public function oferta(){
+        return $this-> belongsTo(Oferta::class, 'oferta_id');
+    }
 }

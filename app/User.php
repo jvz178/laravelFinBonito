@@ -30,4 +30,11 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function Aplica(){
+        return $this->hasMany(Aplica::class, 'aplica_id');
+    }
+    public function ciclo(){
+        return $this->belongsTo(Ciclo::Class, 'ciclo_id');
+    }
 }
