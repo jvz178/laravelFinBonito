@@ -5,7 +5,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>OFERTAS</title>
+        <title>SALESIN</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
@@ -13,7 +13,7 @@
         <!-- Styles -->
         <style>
             html, body {
-                background-color: #fff;
+                background-color: rgb(15, 15, 15);
                 color: #636b6f;
                 font-family: 'Raleway', sans-serif;
                 font-weight: 100;
@@ -50,9 +50,9 @@
             }
 
             .links > a {
-                color: #636b6f;
+                color: #000000;
                 padding: 0 25px;
-                font-size: 12px;
+                font-size: 16px;
                 font-weight: 600;
                 letter-spacing: .1rem;
                 text-decoration: none;
@@ -62,9 +62,14 @@
             .m-b-md {
                 margin-bottom: 30px;
             }
+            .body > h3 {
+                font-family: "Times New Roman", Times, serif; 
+                font-size: 18px;
+                text-transform: uppercase;
+            }
         </style>
     </head>
-    <body>
+    
         <div class="flex-center position-ref full-height">
             @if (Route::has('login'))
                 <div class="top-right links">
@@ -77,14 +82,31 @@
                 </div>
             @endif
 
-            <div class="content">
-                <div class="title m-b-md">
-                    Gestión de Ofertas de Empleo
-                </div>
+            <style>
+                .jumbotron {
+                  background-color: #78edf1;
+                  color: #fff;
+                  padding: 200px 300px;
+                }
+                
+                .container-fluid {
+                  padding: 60px 50px;
+                }
+                </style>
+            <body>
+                
+            <div class="jumbotron text-center">
+                <img src="images/salesin.png" style="float:right;width:120px;height:120px;">
+                <div class="title m-b-md; ">
+                    SALESIN
+            </div>
+
+                <h3 >Gestión de ofertas de empleo</h3>
+                
 
                 <div class="links">
                     <!--<a href="https://laravel.com/docs">Documentation</a>-->
-                    <a href="acciones/gestion">Gestion</a>
+                    <a href="acciones/gestion">Gestion de usuarios</a>
                     <!--<a href="https://laracasts.com">Laracasts</a>-->
                     <a href="acciones/vistaEmail">Email</a>
                     <a href="noticias">Noticias</a>
