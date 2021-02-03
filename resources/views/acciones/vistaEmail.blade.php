@@ -2,7 +2,11 @@
 {{ csrf_field() }}
 <h1>Email</h1>
 <h4>Destinatario:</h4>
-<input type="text" name="Destinatario" id="destinatario">
+<h8>*Pon una coma entre emails</h8>
+</br>
+<input type="text" size=300 style="WIDTH:300px; HEIGHT:90px"
+placeholder="example@gmail.com, example2@gmail.com..."
+name="Destinatario" id="destinatario">
 </br></br>
 <h4>Asunto:</h4>
 <input type="text" name="Asunto" id="asunto">

@@ -14,22 +14,16 @@ class EmailController extends Controller
 
     public function enviarEmail(Request $request){
 
+        $dataCorreos= explode(",", $request['Destinatario']);
+        
+        foreach($dataCorreos as $correo){
         $data=[
-        'emailto'=>$request['Destinatario'],
+        'emailto' => $correo,
         'subject' => $request['Asunto'],
         'content' => $request['Contenido'],
         'file' => $request['Archivo'],//->file('Archivo'),
         ];
 
-        /*if($datosEmail->hasFile('Archivo')){
-
-            $url="SI";
-        }*/
-
-        // dd($data['file']);
-        // dd($data['file']->path());
-        //$url=request()->file('Archivo');
-        //dd($url);
         Mail::send('emailEnviar',$data, function ($message) use($data){
             $message->from('salesin300@gmail.com');
             $message->to($data['emailto'])->subject($data['subject']);
@@ -37,10 +31,7 @@ class EmailController extends Controller
                 'as'=>request()->file('Archivo')->getClientOriginalName(),
                 'mime'=>request()->file('Archivo')->getMimeType()]);
         });
-
-        return back();
+    }
+        return response()->json($dataCorreos);
     }
 }
-
-// ['as'=> request()->file('file')->getClientOriginalName(),
-// 'mime'=>request()->file('file')->getMimeType()]
