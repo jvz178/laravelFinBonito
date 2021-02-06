@@ -21,13 +21,13 @@ class InformesController extends Controller
     }
 
     public function general() {
-    return View('informes.general');
+    return View('general');
        }
 
     public function ofertasCiclo(Request $request){
       $ciclo=$request->cicle;
       $ofertas= DB::table('ofertas')->where('ciclo_id', "=", $ciclo)->get();
-      return View ('informes.ofertas', compact('ofertas'));
+      return View ('informes/ofertas', compact('ofertas'));
     }
   
 

@@ -11,22 +11,22 @@ class UsuarioController extends Controller
 
         /** Uso del where en user*/
         $datos['users']=User::paginate(5);
-
-        return view('acciones.gestion', $datos);
+        
+        return view('gestion',$datos);
     }
 
     public function accesoGestionFiltrado(){
 
         $datos2['users']=User::where('activado',1)->paginate(5);
         
-        return view('acciones.gestion', $datos2);
+        return view('gestion', $datos2);
     }
 
     public function accesoGestionFiltrado2(){
 
         $datos3['users']=User::where('activado',0)->paginate(5);
 
-        return view('acciones.gestion', $datos3);
+        return view('gestion', $datos3);
     }
 
     public function cambiar($id){

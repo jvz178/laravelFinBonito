@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+{{ csrf_field() }}
 
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="" />
     <meta name="author" content="" />
-    <title>SalesIn-Menu</title>
+    <title>SalesIn-Gestión</title>
     <!-- Favicon-->
-    <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico" />
+    <link rel="icon" type="image/x-icon" href="../images/Logo.jpg" />
     <!-- Font Awesome icons (free version)-->
     <script src="https://use.fontawesome.com/releases/v5.15.1/js/all.js" crossorigin="anonymous"></script>
     <!-- Google fonts-->
@@ -23,47 +24,100 @@
     <!-- Navigation-->
     <nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
         <div class="container">
-            <a class="navbar-brand js-scroll-trigger" href="#page-top">SalesIn-Menu</a>
+            <a class="navbar-brand js-scroll-trigger" href="#page-top">SalesIn-Gestión</a>
             <button
                 class="navbar-toggler navbar-toggler-right text-uppercase font-weight-bold bg-primary text-white rounded"
                 type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive"
                 aria-expanded="false" aria-label="Toggle navigation">
-                SalesIn
+                Menu
                 <i class="fas fa-bars"></i>
             </button>
-            <!--<div class="collapse navbar-collapse" id="navbarResponsive">
+            <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger"
-                            href="#portfolio">Portfolio</a></li>
+                            href="{{ url('/home') }}">Menu</a></li>
                     <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger"
-                            href="#about">About</a></li>
+                            href="vistaEmail">Email</a></li>
                     <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger"
-                            href="#contact">Contact</a></li>
+                            href="informes">Informes</a></li>
                 </ul>
-            </div>-->
+            </div>
         </div>
     </nav>
     <!-- Masthead-->
     <header class="masthead bg-primary text-white text-center">
         <div class="container d-flex align-items-center flex-column">
             <!-- Masthead Avatar Image-->
-            <img class="masthead-avatar mb-5" src="assets/img/avataaars.svg" alt="" />
+            <img class="masthead-avatar mb-5" src="images/Logo.jpg" alt="" />
             <!-- Masthead Heading-->
-            <h1 class="masthead-heading text-uppercase mb-0">SALESIN</h1>
+            <h1 class="masthead-heading text-uppercase mb-0">Gestión de Usuarios</h1>
             <!-- Icon Divider-->
             <div class="divider-custom divider-light">
                 <div class="divider-custom-line"></div>
                 <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
                 <div class="divider-custom-line"></div>
             </div>
-            <!-- Masthead Subheading-->
-            <p class="masthead-subheading font-weight-light mb-0">
-                <a href="gestion" style="color:white;">Gestión de Usuarios</a> -
-                <a href="vistaEmail" style="color:white;">Mandar email</a> -
-                <a href="informes" style="color:white;">Generar Informes</a>
-            </p>
         </div>
     </header>
+    <!-- Portfolio Section-->
+    <section class="page-section portfolio" id="portfolio">
+        <div class="container">
+            <!-- Portfolio Section Heading-->
+            <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Tabla</h2>
+            <!-- Icon Divider-->
+            <div class="divider-custom">
+                <div class="divider-custom-line"></div>
+                <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+                <div class="divider-custom-line"></div>
+            </div>
+            <table class="table table-light table-hover">
+                <thead class="thead-light">
+                    <tr>
+                        <th>ID</th>
+                        <th>Nombre</th>
+                        <th>Apellido</th>
+                        <th>Email</th>
+                        <th>Estado</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach($users as $user)
+                        <tr>
+                            <td>{{ $user->id }}</td>
+                            <td>{{ $user->nombre }}</td>
+                            <td>{{ $user->apellido }}</td>
+                            <td>{{ $user->email }}</td>
+                            <td>
+                                @if($user->activado==0)
+                                    <a href="{{ url('usuario',$user->id) }}">Activar</a>
+                                @endif
+                                @if($user->activado==1)
+                                    <a href="{{ url('usuario',$user->id) }}">Desactivar</a>
+                                @endif
+                            </td>
+                        </tr>
+                    @endforeach
+                </tbody>
+            </table>
+                {{ $users->links() }}
+    </section>
+    <!-- About Section-->
+    <section class="page-section bg-primary text-white mb-0" id="about">
+        <div class="container">
+            <!-- About Section Heading-->
+            <h2 class="page-section-heading text-center text-uppercase text-white">Filtros</h2>
+            <!-- Icon Divider-->
+            <div class="divider-custom divider-light">
+                <div class="divider-custom-line"></div>
+                <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+                <div class="divider-custom-line"></div>
+            </div>
+            <div align="center">
+                <a class="btn btn-warning" href="{{ url('filtro') }}">Activos</a>
+                <a class="btn btn-warning" href="{{ url('filtro2') }}">Inactivos</a>
+                <a class="btn btn-warning" href="{{ url('gestion') }}">Ambos</a>
+            </div>
+    </section>
     <!-- Footer-->
     <footer class="footer text-center">
         <div class="container">
