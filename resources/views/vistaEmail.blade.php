@@ -8,7 +8,7 @@
     <meta name="author" content="" />
     <title>SalesIn-Email</title>
     <!-- Favicon-->
-    <link rel="icon" type="image/x-icon" href="../images/Logo.jpg" />
+    <link rel="icon" type="image/x-icon" href="images/Logo.jpg" />
     <!-- Font Awesome icons (free version)-->
     <script src="https://use.fontawesome.com/releases/v5.15.1/js/all.js" crossorigin="anonymous"></script>
     <!-- Google fonts-->
