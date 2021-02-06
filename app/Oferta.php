@@ -13,4 +13,9 @@ class Oferta extends Model
     protected $fillable = [
          'titulo','descripcion','fecha_max','num_candidatos','ciclo_id',
     ];
+
+    
+    public function ciclo(){
+        return $this->belongsTo(Ciclo::class, 'ciclo_id');
+    }
 }

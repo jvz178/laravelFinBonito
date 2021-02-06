@@ -118,11 +118,11 @@
                             {{ __("Ciclo") }}
                         </label>
                         <select id="ciclo" class="form-control" name="cicle">
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
+                            <option value="1">1-DAM</option>
+                            <option value="2">2-ASIR</option>
+                            <option value="3">3-GESTIÓN</option>
+                            <option value="4">4-AUTOMOCIÓN</option>
+                            <option value="5">5-MECATRÓNICA</option>
                         </select>
                     </div>
                     <button style="font-size:100%; background-color:#e8f0e8" type="submit" name="ciclo"
@@ -139,16 +139,16 @@
             <div class="row">
                 <!-- Footer Location-->
                 <div class="col-lg-4 mb-5 mb-lg-0">
-                    <h4 class="text-uppercase mb-4">Location</h4>
+                    <h4 class="text-uppercase mb-4">Donde estamos</h4>
                     <p class="lead mb-0">
-                        2215 John Daniel Drive
+                        Avenida Maria Auxiliadora 7
                         <br />
-                        Clark, MO 65243
+                        Cádiz, 11009
                     </p>
                 </div>
                 <!-- Footer Social Icons-->
                 <div class="col-lg-4 mb-5 mb-lg-0">
-                    <h4 class="text-uppercase mb-4">Around the Web</h4>
+                    <h4 class="text-uppercase mb-4">Redes Sociales</h4>
                     <a class="btn btn-outline-light btn-social mx-1" href="#!"><i
                             class="fab fa-fw fa-facebook-f"></i></a>
                     <a class="btn btn-outline-light btn-social mx-1" href="#!"><i class="fab fa-fw fa-twitter"></i></a>
@@ -158,10 +158,10 @@
                 </div>
                 <!-- Footer About Text-->
                 <div class="col-lg-4">
-                    <h4 class="text-uppercase mb-4">About Freelancer</h4>
+                    <h4 class="text-uppercase mb-4">Sobre nosotros</h4>
                     <p class="lead mb-0">
-                        Freelance is a free to use, MIT licensed Bootstrap theme created by
-                        <a href="http://startbootstrap.com">Start Bootstrap</a>
+                        Gestión de ofertas y noticias para  nuestra FP Superior
+                        <a href="http://startbootstrap.com"></a>
                         .
                     </p>
                 </div>
