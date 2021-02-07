@@ -24,6 +24,9 @@ class EmailController extends Controller
         'file' => $request['Archivo'],//->file('Archivo'),
         ];
 
+        if($data['emailto']==null){
+            return view("Error");
+        }else{
         Mail::send('emailEnviar',$data, function ($message) use($data){
             $message->from('salesin300@gmail.com');
             $message->to($data['emailto'])->subject($data['subject']);
@@ -33,6 +36,7 @@ class EmailController extends Controller
                 'mime'=>request()->file('Archivo')->getMimeType()]);
             }
         });
+       }
     }
         return back();
     }

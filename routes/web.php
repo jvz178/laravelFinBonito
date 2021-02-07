@@ -25,6 +25,7 @@ Route::get('filtro2', 'UsuarioController@accesoGestionFiltrado2');
 Route::get('usuario/{id}','UsuarioController@cambiar');
 Route::get('vistaEmail','EmailController@accederEmail');
 Route::post('vistaEmail/enviarEmail', 'EmailController@enviarEmail')->name('enviar');
+Route::get('Error','EmailController@mostrarError');
 Route::get('informes', 'InformesController@general');
 Route::get('informes/ofertas', 'InformesController@informeOferta')->name('pdf');
 // Route::get('informes/oferta2', 'InformesController@informeAlumnos')->name('pdf');
