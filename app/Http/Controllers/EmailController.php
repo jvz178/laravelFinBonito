@@ -21,9 +21,10 @@ class EmailController extends Controller
         'emailto' => $correo,
         'subject' => $request['Asunto'],
         'content' => $request['Contenido'],
-        'file' => $request['Archivo'],//->file('Archivo'),
+        'file' => $request['Archivo'],
         ];
 
+        dd(request()->file('Archivo'));
         if($data['emailto']==null){
             return view("Error");
         }else{

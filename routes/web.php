@@ -32,6 +32,9 @@ Route::get('informes/ofertas', 'InformesController@informeOferta')->name('pdf');
 Route::get('informes/oferta4', 'InformesController@listadoAlumnos')->name('pdf');
 Route::get('informes/oferta3', 'InformesController@ofertasCiclo')->name('pdf');
 Route::resource('/noticias', 'NoticiaController');
+//Rutas pruebas
+Route::get('/users', 'UsuarioController@index');
+//
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
