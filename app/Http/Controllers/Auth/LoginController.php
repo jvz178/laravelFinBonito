@@ -42,19 +42,20 @@ class LoginController extends Controller
     //     if(auth()->user()->tipo === 'admin') {
     //     return '/home';
     //     }
-    //     return 'auth.login';
+    //     return '/login';
     //    }
+
+       protected function authenticated(Request $request, $user)
+       {
+           if ($user->tipo!=='admin') {
+               $this->guard()->logout();
+               $request->session()->invalidate();
+               session()->flash('message', ['danger', 'No tienes permisos para loguearte']);
+               return redirect('/login');
+           } else {
+               $user->save();
+           }
+           return redirect($this->redirectPath());
+       }
        
-    protected function authenticated(Request $request, $user)
-    {
-        if ($user->tipo!=='admin') {
-            $this->guard()->logout();
-            $request->session()->invalidate();
-            session()->flash('message', ['danger', 'No tienes permisos para loguearte']);
-            return redirect('/login');
-        } else {
-            $user->save();
-        }
-        return redirect($this->redirectPath());
-    }
 }
