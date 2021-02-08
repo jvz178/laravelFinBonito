@@ -15,37 +15,25 @@ Route::get('/', function () {
     return view('auth/login');
 });
 
-
-//Route::group(['middleware' => 'admin'], function () {
 Route::group(['middleware' => 'auth'], function () {
-    Route::get('gestion', 'UsuarioController@accesoGestion')->name("gestion");
-//Route::get('gestion', 'UsuarioController@accesoGestion2')->name("gestion2");
-<<<<<<< HEAD
-    Route::get('filtro', 'UsuarioController@accesoGestionFiltrado');
-    Route::get('filtro2', 'UsuarioController@accesoGestionFiltrado2');
+// Route::group(['middleware' => 'admin'], function () {
+
+    Route::get('/acciones/gestion', 'UsuarioController@accesoGestion'); 
+    Route::get('/acciones/gestion/filtro', 'UsuarioController@accesoGestionFiltrado');
+    Route::get('/acciones/gestion/filtro2', 'UsuarioController@accesoGestionFiltrado2');
     Route::get('usuario/{id}','UsuarioController@cambiar');
-    Route::get('vistaEmail','EmailController@accederEmail');
-    Route::post('vistaEmail/enviarEmail', 'EmailController@enviarEmail')->name('enviar');
+    Route::get('acciones/vistaEmail','EmailController@accederEmail');
+    Route::post('acciones/vistaEmail/enviarEmail', 'EmailController@enviarEmail')->name('enviar');
     Route::get('informes', 'InformesController@general');
     Route::get('informes/ofertas', 'InformesController@informeOferta')->name('pdf');
-=======
-Route::get('filtro', 'UsuarioController@accesoGestionFiltrado');
-Route::get('filtro2', 'UsuarioController@accesoGestionFiltrado2');
-Route::get('usuario/{id}','UsuarioController@cambiar');
-Route::get('vistaEmail','EmailController@accederEmail');
-Route::post('vistaEmail/enviarEmail', 'EmailController@enviarEmail')->name('enviar');
-Route::get('Error','EmailController@mostrarError');
-Route::get('informes', 'InformesController@general');
-Route::get('informes/ofertas', 'InformesController@informeOferta')->name('pdf');
->>>>>>> f29fa032b0f2f5bf50f6df0e73e0cb03659e71f1
-// Route::get('informes/oferta2', 'InformesController@informeAlumnos')->name('pdf');
+    // Route::get('informes/oferta2', 'InformesController@informeAlumnos')->name('pdf');
     Route::get('informes/oferta4', 'InformesController@listadoAlumnos')->name('pdf');
     Route::get('informes/oferta3', 'InformesController@ofertasCiclo')->name('pdf');
     Route::resource('/noticias', 'NoticiaController');
-   
-    
-// });
- });
- Auth::routes();
- Route::get('/home', 'HomeController@index')->name('home');
- 
+    Auth::routes();
+    Route::get('/home', 'HomeController@index')->name('home');
+
+});
+
+Auth::routes();
+Route::get('/home', 'HomeController@index')->name('home');
