@@ -24,7 +24,6 @@ class EmailController extends Controller
         'file' => $request['Archivo'],
         ];
 
-        dd(request()->file('Archivo'));
         if($data['emailto']==null){
             return view("Error");
         }else{
@@ -37,8 +36,8 @@ class EmailController extends Controller
                 'mime'=>request()->file('Archivo')->getMimeType()]);
             }
         });
+        return back();
        }
     }
-        return back();
     }
 }
