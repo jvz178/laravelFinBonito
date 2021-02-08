@@ -44,16 +44,26 @@ class RegisterController extends Controller
     return response()->json(['error' => 'No estás autorizado'], 401);
     }
    }
+       
+    // public function logout(Request $request)
+    // {
+    //     $request->user()->token()->revoke();
+    //     return response()->json(['message' => 
+    //         'Successfully logged out']);
+    // }
 
-//    public function logout(){
 
-//     $user = User::find(auth()->id());
-//     // $user->is_logged = false;
-//     $user->save();
-//     $this->guard()->logout();
-//     $request->session()->invalidate();
-//     return $this->loggedOut($request) ?: redirect('/login');
-//    }
+    public function logout(Request $request)
+    {
+        Auth::logout();
+
+        $request->session()->invalidate();
+
+        $request->session()->regenerateToken();
+
+        return response()->json(['data' => $request], $this->successStatus);
+    }
+   
 
 
 }

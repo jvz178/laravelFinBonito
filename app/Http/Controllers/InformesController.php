@@ -15,7 +15,8 @@ class InformesController extends Controller
       $f_inicio=$anno.'-09-01';
       $f_fin=($anno+1).'-08-31';
       $listaOfertas= DB::table('ofertas')
-        ->whereBetween ('fecha_max',[$f_inicio,$f_fin])->get();
+        ->whereBetween ('fecha_max',[$f_inicio,$f_fin])
+        ->orderBy('ciclo_id')->get();
       $pdf = PDF::loadView('informes.informeOferta', compact('listaOfertas'));
       return $pdf->stream();
     }
