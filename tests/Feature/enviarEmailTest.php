@@ -4,6 +4,7 @@ namespace Tests\Feature;
 
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\WithFaker;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class enviarEmailTest extends TestCase
@@ -24,7 +25,7 @@ class enviarEmailTest extends TestCase
             'file' => null,
             ];
 
-        $response=Mail::send('emailEnviar',$data, function ($message) use($data){
+        Mail::send('emailEnviar',$data, function ($message) use($data){
             $message->from('salesin300@gmail.com');
             $message->to($data['emailto'])->subject($data['subject']);
             if($data['file'] != null){
@@ -33,8 +34,5 @@ class enviarEmailTest extends TestCase
                 'mime'=>request()->file('Archivo')->getMimeType()]);
             }
         });
-
-        $response->assertStatus(200);
-
     }
 }

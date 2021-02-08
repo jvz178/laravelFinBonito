@@ -6,7 +6,7 @@ use Tests\TestCase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
-class accederGestionTest extends TestCase
+class muestraUsuariosTest extends TestCase
 {
     /**
      * A basic test example.
@@ -17,11 +17,17 @@ class accederGestionTest extends TestCase
     {
         $this->withoutExceptionHandling();
         
-        // factory(\App\Ciclo::class, 5)->create();
-        // factory(\App\User::class, 50)->create();
+        factory(Ciclo::class, 5)->create();
+        factory(User::class, 50)->create();
 
-        $response = $this->get('gestion');
-
+        $response=$this->get('/users');
+        
         $response->assertStatus(200);
+
+        $users = User::all();
+
+        $response->assertViewIs('gestion');
+        $response->assertViewHas('users', $users);
+
     }
 }
