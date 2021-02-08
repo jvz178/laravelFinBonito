@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Http\Request;
 
 class LoginController extends Controller
 {
@@ -37,11 +38,23 @@ class LoginController extends Controller
         $this->middleware('guest')->except('logout');
     }
 
-    public function redirectPath(){
-        if(auth()->user()->tipo === 'admin') {
-        return '/home';
-        }
-        return '/login';
-       }
+    // public function redirectPath(){
+    //     if(auth()->user()->tipo === 'admin') {
+    //     return '/home';
+    //     }
+    //     return 'auth.login';
+    //    }
        
+    protected function authenticated(Request $request, $user)
+    {
+        if ($user->tipo!=='admin') {
+            $this->guard()->logout();
+            $request->session()->invalidate();
+            session()->flash('message', ['danger', 'No tienes permisos para loguearte']);
+            return redirect('/login');
+        } else {
+            $user->save();
+        }
+        return redirect($this->redirectPath());
+    }
 }

@@ -40,6 +40,7 @@
                                     <span class="help-block">
                                         <strong>{{ $errors->first('email') }}</strong>
                                     </span>
+                        
                                 @endif
                             </div>
                         </div>
@@ -74,7 +75,7 @@
                                     Login
                                 </button>
 
-                                <a class="btn btn-link" href="{{ route('password.request') }}">
+                                <a class="btn btn-link" >
                                     Forgot Your Password?
                                 </a>
                             </div>
