@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
+use Egulias\EmailValidator\EmailValidator;
+use Egulias\EmailValidator\Validation\RFCValidation;
 
 class EmailController extends Controller
 {
@@ -13,6 +15,8 @@ class EmailController extends Controller
     }
 
     public function enviarEmail(Request $request){
+
+        $validar=new EmailValidator();
 
         $dataCorreos= explode(",", $request['Destinatario']);
         
@@ -24,7 +28,7 @@ class EmailController extends Controller
         'file' => $request['Archivo'],
         ];
 
-        if($data['emailto']==null){
+        if(!$validar->isValid($data['emailto'],new RFCValidation())){
             return view("Error");
         }else{
         Mail::send('emailEnviar',$data, function ($message) use($data){

@@ -44,14 +44,14 @@ class LoginController extends Controller
     //     }
     //     return '/login';
     //    }
-
+    
        protected function authenticated(Request $request, $user)
        {
            if ($user->tipo!=='admin') {
                $this->guard()->logout();
                $request->session()->invalidate();
                session()->flash('message', ['danger', 'No tienes permisos para loguearte']);
-               return redirect('/login');
+               return view('noAutorizado');
            } else {
                $user->save();
            }
