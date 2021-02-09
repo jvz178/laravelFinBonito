@@ -1,7 +1,6 @@
 <!DOCTYPE html>
-@extends('layouts.app')
-
 <html lang="en">
+
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
@@ -32,16 +31,18 @@
                 SalesIn
                 <i class="fas fa-bars"></i>
             </button>
-            <!--<div class="collapse navbar-collapse" id="navbarResponsive">
+            <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ml-auto">
-                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger"
-                            href="#portfolio">Portfolio</a></li>
-                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger"
-                            href="#about">About</a></li>
-                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger"
-                            href="#contact">Contact</a></li>
+                    <li>
+                        <a href="{{ route('logout') }}" onclick="event.preventDefault();
+                        document.getElementById('logout-form').submit();">Logout</a>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                            style="display: none;">
+                            {{ csrf_field() }}
+                        </form>
+                    </li>
                 </ul>
-            </div>-->
+            </div>
         </div>
     </nav>
     <!-- Masthead-->
@@ -93,7 +94,7 @@
                 <div class="col-lg-4">
                     <h4 class="text-uppercase mb-4">Sobre nosotros</h4>
                     <p class="lead mb-0">
-                        Gestión de ofertas y noticias para  nuestra FP Superior
+                        Gestión de ofertas y noticias para nuestra FP Superior
                         <a href="http://startbootstrap.com"></a>
                         .
                     </p>

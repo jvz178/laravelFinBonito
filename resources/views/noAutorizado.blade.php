@@ -5,7 +5,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Error</title>
+        <title>Error-No autorizado</title>
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="images/Logo.jpg"/>
         <!-- Font Awesome icons (free version)-->
         <script src="https://use.fontawesome.com/releases/v5.15.1/js/all.js" crossorigin="anonymous"></script>
         <!-- Google fonts-->
@@ -18,7 +20,7 @@
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
             <div class="container">
-                <a class="navbar-brand js-scroll-trigger" href="#page-top" style="color:red">ERROR</a>
+                <a class="navbar-brand js-scroll-trigger" href="#page-top" style="color:red">No autorizado</a>
                 <button class="navbar-toggler navbar-toggler-right text-uppercase font-weight-bold bg-primary text-white rounded" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                     Menu
                     <i class="fas fa-bars"></i>
@@ -31,10 +33,10 @@
         <header class="masthead bg-primary text-white text-center">
             <div class="container d-flex align-items-center flex-column">
                 <!-- Masthead Avatar Image-->
-                <img class="masthead-avatar mb-5" src="../images/Error.png" alt="" />
+                <img class="masthead-avatar mb-5" src="assets/img/portfolio/safe.png" alt="" />
                 <!-- Masthead Heading-->
                 <h1 class="masthead-heading text-uppercase mb-0" style="color:white">
-                Lo sentimos, se ha producido un error</h1>
+                Solo el administrador está autorizado para entrar</h1>
                 <!-- Icon Divider-->
                 <div class="divider-custom divider-light">
                     <div class="divider-custom-line"></div>
@@ -43,7 +45,7 @@
                 </div>
                 <!-- Masthead Subheading-->
                 <p class="masthead-subheading font-weight-light mb-0">
-                <a href="/vistaEmail" style="color:green;">Pinche aquí para volver atrás</a>
+                <a href="/vistaEmail" style="color:green;">Pinche aquí para volver al login</a>
                 </p>
             </div>
         </header>

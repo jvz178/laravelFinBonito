@@ -30,6 +30,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('informes/oferta4', 'InformesController@listadoAlumnos')->name('pdf');
     Route::get('informes/oferta3', 'InformesController@ofertasCiclo')->name('pdf');
     Route::resource('/noticias', 'NoticiaController');
+    Route::get('noAutorizado', 'LoginController@authenticated');
     Auth::routes();
     Route::get('/home', 'HomeController@index')->name('home');
 
