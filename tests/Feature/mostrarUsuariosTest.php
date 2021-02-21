@@ -5,7 +5,7 @@ namespace Tests\Feature;
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use App\User;
+use App\user;
 use App\Ciclo;
 
 class mostrarUsuariosTest extends TestCase
@@ -16,13 +16,11 @@ class mostrarUsuariosTest extends TestCase
     {
         $this->withoutExceptionHandling();
 
-        factory(\App\Ciclo::class, 5)->create();
-        factory(\App\User::class, 50)->create();
+        factory(\App\Ciclo::class, 1)->create();
+        factory(\App\User::class, 1)->create();
 
-        $datos=User::all();
-        $response=$this->get('gestion');
-        $response->assertViewHas('gestion',$datos);
-        
+        $datos['users']=User::paginate(5);
+
         return view('gestion',$datos);
     }
 }
