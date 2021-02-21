@@ -31,6 +31,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('informes/oferta3', 'InformesController@ofertasCiclo')->name('pdf');
     Route::resource('/noticias', 'NoticiaController');
     Route::get('noAutorizado', 'LoginController@authenticated');
+    Route::get('desactivado', 'LoginController@authenticated');
     Auth::routes();
     Route::get('/home', 'HomeController@index')->name('home');
 

@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Error-No autorizado</title>
+        <title>Error-Usuario desactivado</title>
         <!-- Favicon-->
         <link rel="icon" type="image/x-icon" href="images/Logo.jpg"/>
         <!-- Font Awesome icons (free version)-->
@@ -20,7 +20,7 @@
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
             <div class="container">
-                <a class="navbar-brand js-scroll-trigger" href="#page-top" style="color:red">No autorizado</a>
+                <a class="navbar-brand js-scroll-trigger" href="#page-top" style="color:red">Usuario desactivado</a>
                 <button class="navbar-toggler navbar-toggler-right text-uppercase font-weight-bold bg-primary text-white rounded" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                     Menu
                     <i class="fas fa-bars"></i>
@@ -36,7 +36,7 @@
                 <img class="masthead-avatar mb-5" src="assets/img/portfolio/safe.png" alt="" />
                 <!-- Masthead Heading-->
                 <h1 class="masthead-heading text-uppercase mb-0" style="color:white">
-                Solo el administrador está autorizado para entrar</h1>
+                Su usuario está desactivado</h1>
                 <!-- Icon Divider-->
                 <div class="divider-custom divider-light">
                     <div class="divider-custom-line"></div>
@@ -44,6 +44,8 @@
                     <div class="divider-custom-line"></div>
                 </div>
                 <!-- Masthead Subheading-->
+                <h3>Si desea volver a entrar consulte a otros administradores y/o realize los cambios
+                directamente en la base de datos si tiene acceso</h3>
                 <p class="masthead-subheading font-weight-light mb-0">
                 <a href="/login" style="color:green;">Pinche aquí para volver al login</a>
                 </p>

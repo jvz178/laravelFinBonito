@@ -40,6 +40,11 @@ class LoginController extends Controller
 
        protected function authenticated(Request $request, $user)
        {
+           if($user->activado!==1){
+            $this->guard()->logout();
+            $request->session()->invalidate();
+            return view('desactivado');
+           }else{
            if ($user->tipo!=='admin') {
                $this->guard()->logout();
                $request->session()->invalidate();
@@ -50,5 +55,6 @@ class LoginController extends Controller
            }
            return redirect($this->redirectPath());
        }
+    }
        
 }

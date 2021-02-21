@@ -19,29 +19,30 @@ class EmailController extends Controller
         $validar=new EmailValidator();
 
         $dataCorreos= explode(",", $request['Destinatario']);
-        
+        $variable=0;
         foreach($dataCorreos as $correo){
-        $data=[
-        'emailto' => $correo,
-        'subject' => $request['Asunto'],
-        'content' => $request['Contenido'],
-        'file' => $request['Archivo'],
-        ];
-
-        if(!$validar->isValid($data['emailto'],new RFCValidation())){
-            return view("Error");
-        }else{
-        Mail::send('emailEnviar',$data, function ($message) use($data){
-            $message->from('salesin300@gmail.com');
-            $message->to($data['emailto'])->subject($data['subject']);
-            if($data['file'] != null){
-            $message->attach(request()->file('Archivo')->getRealPath(), [
-                'as'=>request()->file('Archivo')->getClientOriginalName(),
-                'mime'=>request()->file('Archivo')->getMimeType()]);
+            $variable=$variable+1;
+            $data=[
+                'emailto' => $correo,
+                'subject' => $request['Asunto'],
+                'content' => $request['Contenido'],
+                'file' => $request['Archivo'],
+            ];
+            
+            if(!$validar->isValid($data['emailto'],new RFCValidation())){
+                return view("Error");
+            }else{
+                Mail::send('emailEnviar',$data, function ($message) use($data){
+                    $message->from('salesin300@gmail.com');
+                    $message->to($data['emailto'])->subject($data['subject']);
+                    if($data['file'] != null){
+                        $message->attach(request()->file('Archivo')->getRealPath(), [
+                            'as'=>request()->file('Archivo')->getClientOriginalName(),
+                            'mime'=>request()->file('Archivo')->getMimeType()]);
+                        }
+                    });
+                }
             }
-        });
-        return back();
-       }
+            return back();
+        }
     }
-    }
-}
