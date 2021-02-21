@@ -15,12 +15,12 @@
     <table border="1" class="table table-light table-hover default">
         <thead class="thead-light">
             <tr>
-                <th>ID</th>
+                <th>Numero Oferta</th>
                 <th>Título</th>
                 <th>Descripción</th>
-                <th>Fecha máxima</th>
+                <th>Fecha  máxima</th>
                 <th>Numero de candidatos</th>
-                <th>Ciclo ID</th>
+                <th>Numero Ciclo</th>
             </tr>
         </thead>
 
@@ -31,7 +31,7 @@
             <td>{{$oferta->titulo}}</td>
             <td>{{$oferta->descripcion}}</td>
             <td>{{$oferta->fecha_max}}</td>
-            <td>{{$oferta->num_candidatos}}</td>
+            <td>{{$oferta->num_candidatos}}</td> 
             <td>{{$oferta->ciclo_id}} </td>
             </tr>
             @endforeach
