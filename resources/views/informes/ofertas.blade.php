@@ -79,7 +79,7 @@
             <td>{{$oferta->fecha_max}}</td>
             <td>{{$oferta->num_candidatos}}</td>
             <td>
-                <form method="GET" action="/informes/oferta4">
+                <form method="GET" action="/informes/oferta4" target="_blank">
                     <button style="color:white; background-color:red;" type="submit" name="oferID" value="{{$oferta->id}}" class="btn btn-default">
                         {{__("PDF")}}
                     </button>

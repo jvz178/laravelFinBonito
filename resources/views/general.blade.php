@@ -69,7 +69,7 @@
                 <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
                 <div class="divider-custom-line"></div>
             </div>
-            <form method="GET" action="informes/ofertas">
+            <form method="GET" action="informes/ofertas" target="_blank">
                 {{ csrf_field() }}
                 <div class="form-group">
                     <label style="font-size:350%; color:white; background-color:#000000; height:100px; width:150px"
