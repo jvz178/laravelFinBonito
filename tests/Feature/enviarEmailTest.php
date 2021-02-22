@@ -20,7 +20,7 @@ class enviarEmailTest extends TestCase
         $this->withoutExceptionHandling();
 
         $data=[
-            'emailto' => "villarjua20@cadiz.salesianos.edu",
+            'emailto' => "villar.zajua20@cadiz.salesianos.edu",
             'subject' => "Prueba",
             'content' => "Prueba",
             'file' => null,
@@ -40,7 +40,8 @@ class enviarEmailTest extends TestCase
             });
             return back();
            }
-
-        $response->assertRedirect('vistaEmail');
+           
+           $this->assertOk();
+           $response->assertRedirect('vistaEmail');
     }
 }

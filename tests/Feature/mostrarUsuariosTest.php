@@ -16,11 +16,12 @@ class mostrarUsuariosTest extends TestCase
     {
         $this->withoutExceptionHandling();
 
-        factory(\App\Ciclo::class, 1)->create();
-        factory(\App\User::class, 1)->create();
+        factory(\App\Ciclo::class, 10)->create();
+        factory(\App\User::class, 10)->create();
 
         $datos['users']=User::paginate(5);
 
         return view('gestion',$datos);
+        $this->assertViewHas('gestion',$datos);
     }
 }
