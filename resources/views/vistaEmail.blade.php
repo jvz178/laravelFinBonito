@@ -75,14 +75,14 @@
                 <h4>Destinatario:</h4>
                 <h8>*Pon una coma entre emails</h8>
                 </br>
-                <input type="text" size=300 style="WIDTH:300px; HEIGHT:90px"
+                <input type="text" size=300 style="WIDTH:500px; HEIGHT:90px"
                     placeholder="example@gmail.com, example2@gmail.com..." name="Destinatario" id="destinatario">
                 </br></br>
                 <h4>Asunto:</h4>
-                <input type="text" name="Asunto" id="asunto">
+                <input type="text" name="Asunto" id="asunto" size=300 style="WIDTH:500px; HEIGHT:90px">
                 </br></br>
                 <h4>Contenido:</h4>
-                <input type="text" name="Contenido" id="contenido">
+                <input type="text" name="Contenido" id="contenido" size=300 style="WIDTH:500px; HEIGHT:90px">
                 </br></br>
                 <!--<label for="Archivo">{{ 'Archivo' }}</label>-->
     </section>
